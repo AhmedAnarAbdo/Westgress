@@ -1,0 +1,15 @@
+@supports (-webkit-touch-callout: none) {
+    @media (min-width: 0) and (max-width: 768px) {
+        #cleverbox_link span {
+            display: inline !important;
+        }
+
+        #cleverbox_link {
+            padding-right: 0 !important;
+        }
+
+        #cleverbox_link::after {
+            display: none !important;
+        }
+    }
+}
