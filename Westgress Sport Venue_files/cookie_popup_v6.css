@@ -1,0 +1,227 @@
+@media print {
+    #cb_cookie_policy_popup_shroud,
+    #cb_cookie_policy_default {
+        display: none;
+    }
+}
+
+#cb_cookie_policy_popup_shroud { position: fixed;left: 0;top: 0;width: 100%;height: 100%;background: rgba(255,255,255,0.8);z-index: 999999;}
+#cb_cookie_policy_popup_shroud.seen {
+    display: none;
+}
+
+/* Cookie Bar/Default Styles */
+#cb_cookie_policy_popup .cb_cookie_button { border-radius: 30px; min-width: 130px; text-transform: uppercase; font-weight: normal; font-size: 13px; line-height: 28px;color: #fff; display: inline-block; text-align: center; margin: 3px 0; padding: 5px 20px; transition: all 0.2s ease-in-out; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; }
+
+#cb_cookie_policy_popup #_cb_accept, #cb_cookie_policy_popup #_cb_accept_pref { background: #d0011b; }
+#cb_cookie_policy_popup #_cb_accept_pref:hover { opacity: 0.8; }
+#cb_cookie_policy_popup #_cb_read_more { border: 1px solid #a7a7a7; }
+#cb_cookie_policy_popup .cb_cookie_policy_popup_text .cb_cookie_button, #cb_cookie_policy_popup #_cb_preferences { color: rgba(255,255,255,0.6); font-size: 11px; }
+#cb_cookie_policy_popup .cb_cookie_policy_popup_text .cb_cookie_button:hover, #cb_cookie_policy_popup #_cb_preferences:hover { color: rgba(255,255,255,0.3);}
+
+#cb_cookie_preferences input:focus + label {
+    border: 1px dotted rgba(255,255,255,0.4);
+}
+
+#cb_cookie_policy_popup [type="radio"]:checked,
+#cb_cookie_policy_popup [type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+#cb_cookie_policy_popup [type="radio"]:checked + label,
+#cb_cookie_policy_popup [type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 19px;
+    display: inline-block;
+    color: #FFF;
+}
+#cb_cookie_policy_popup [type="radio"]:checked + label:before,
+#cb_cookie_policy_popup [type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 100%;
+    background: #fff;
+}
+#cb_cookie_policy_popup [type="radio"]:checked + label:after,
+#cb_cookie_policy_popup [type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #000;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+#cb_cookie_policy_popup [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+#cb_cookie_policy_popup [type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+/* Cookie Default Panel */
+#cb_cookie_policy_default #cb_cookie_policy_popup { min-width: 320px; background: #2d2d2d; position: fixed; bottom: 40px; left: 40px; z-index: 9999999; padding: 40px 15px; width: 350px; margin-top: 4px; transition: all 0.2s ease-in-out; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; box-shadow: 0 0 20px rgba(0,0,0,0.7); }
+@media only screen and (max-width: 430px) { #cb_cookie_policy_default #cb_cookie_policy_popup { left: 0; bottom: 0; box-shadow: none; width: 100%; }}
+
+#cb_cookie_policy_default #cb_cookie_policy_popup.seen { bottom: -1000px; }
+#cb_cookie_policy_default #cb_cookie_policy_popup.seen .cb_cookie_policy_popup { margin-left: 0px; }
+#cb_cookie_policy_default #cb_cookie_policy_popup.seen .cb_cookie_policy_popup_icon { position: fixed; bottom: 0; opacity: 0.6; left: 0; cursor: pointer; }
+#cb_cookie_policy_default #cb_cookie_policy_popup.seen .cb_cookie_policy_popup_icon span { border: 1px solid rgba(255,255,255,0.3); transition: border 0.2s ease-in-out; width: 29px;height: 29px; }
+#cb_cookie_policy_default #cb_cookie_policy_popup.seen .cb_cookie_policy_popup_icon:hover { opacity: 1; }
+#cb_cookie_policy_default #cb_cookie_policy_popup.seen .cb_cookie_policy_popup_icon:hover span { border: 1px solid rgba(255,255,255,0.6); }
+
+#cb_cookie_policy_default #cb_cookie_policy_popup .cb_cookie_policy_popup { max-width: 1170px; margin: 0 auto; text-align: center; }
+#cb_cookie_policy_default #cb_cookie_policy_popup .cb_cookie_policy_popup_icon { display: inline; width: 45px; transition: all 0.2s ease-in-out; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; }
+#cb_cookie_policy_default #cb_cookie_policy_popup .cb_cookie_policy_popup_icon span { border-radius: 50%; background: #d0011b; font-weight: normal; font-size: 28px; line-height: 38px; color: #fff; display: inline-block; text-align: center; margin: 0; width: 28px; height: 28px; }
+#cb_cookie_policy_default #cb_cookie_policy_popup .cb_cookie_policy_popup_text { padding: 0 15px 35px; font-weight: normal; font-size: 18px; line-height: 27px; color: #fff; display: inline-block; text-align: center; margin-bottom: 35px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+#cb_cookie_policy_default #cb_cookie_policy_popup .cb_cookie_policy_popup_text strong { display: block }
+#cb_cookie_policy_default #cb_cookie_policy_popup .cb_cookie_policy_popup_options { display: block; vertical-align: middle; color: #fff; font-weight: normal; font-size: 13px; line-height: 33px;text-align: center; margin: 0; transition: all 1s ease-in-out; overflow: hidden; }
+
+#cb_cookie_policy_default #cb_cookie_policy_popup .cb_cookie_policy_popup_options#cb_cookie_landing { max-height: 150px; }
+#cb_cookie_policy_default #cb_cookie_policy_popup .cb_cookie_policy_popup_options#cb_cookie_preferences { max-height: 0; }
+
+#cb_cookie_policy_default #cb_cookie_policy_popup.show_preferences .cb_cookie_policy_popup_options#cb_cookie_landing { max-height: 0; }
+#cb_cookie_policy_default #cb_cookie_policy_popup.show_preferences .cb_cookie_policy_popup_options#cb_cookie_preferences { max-height: 150px; }
+
+#cb_cookie_policy_default #cb_cookie_policy_popup .cb_cookie_policy_popup_options#cb_cookie_preferences .cb_cookie_button { margin-top: 15px; clear: both;}
+
+#cb_cookie_policy_default #cb_cookie_policy_popup .cb_cookie_policy_popup_options label { color: #fff; padding-right: 0; font-weight: normal; font-size: 13px; line-height: 20px;}
+#cb_cookie_policy_default #cb_cookie_policy_popup .cb_cookie_policy_popup_options span { margin: 5px 0 5px 0; padding: 0 15px; white-space: nowrap;}
+
+/* Cookie Bar Panel */
+#cb_cookie_policy_bar #cb_cookie_policy_popup.seen { bottom: -1000px; }
+#cb_cookie_policy_bar #cb_cookie_policy_popup {
+    background: #2d2d2d; display: none; position: fixed; bottom: 0; z-index: 99999999; padding: 0px; width: 100%; float: left; margin-top: 4px;
+}
+#cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup {
+    width: 100%;
+    position: relative;
+}
+#cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup .cb_cookie_policy_popup_icon {
+    float: left;
+}
+#cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup .cb_cookie_policy_popup_icon span {
+    width: 50px;
+    height: 76px;
+    line-height: 85px;
+    float: left;
+    margin: -15px 20px -15px -20px;
+    background: #d0011b; font-weight: normal; font-size: 28px; color: #fff;  text-align: center;
+}
+#cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup .cb_cookie_policy_popup_text {
+    float: left; padding: 15px 20px; font: normal 15px/21px 'arial'; color: #fff; text-align: left; background: rgba(255,255,255,0.05);
+    margin-right: 20px;
+}
+#cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup_text .cb_cookie_button {
+    padding: 0;
+    margin: 0;
+    min-width: auto;
+    line-height: 24px;
+}
+/*#cb_cookie_policy_bar #cb_cookie_policy_popup #cb_cookie_preferences {
+    float: left;
+    padding: 15px;
+}*/
+
+#cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup_options { display: block; vertical-align: middle; color: #fff; font-weight: normal; font-size: 13px; line-height: 33px; margin: 0; transition: all 1s ease-in-out; overflow: hidden; }
+
+#cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup_options#cb_cookie_landing { max-height: 75px;padding: 15px 0;}
+#cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup_options#cb_cookie_preferences { max-height: 0;padding: 0; }
+
+#cb_cookie_policy_bar #cb_cookie_policy_popup.show_preferences .cb_cookie_policy_popup_options#cb_cookie_landing { max-height: 0;padding: 0; }
+#cb_cookie_policy_bar #cb_cookie_policy_popup.show_preferences .cb_cookie_policy_popup_options#cb_cookie_preferences { max-height: 75px;padding: 15px 0; }
+
+#cb_cookie_policy_bar #cb_cookie_policy_popup [type="radio"] + label {
+    margin-right: 15px;
+    font: normal 15px/21px 'arial';
+}
+/*#cb_cookie_policy_bar #cb_cookie_landing { display: none; }*/
+
+@media only screen and (min-width: 980px) and (max-width: 1140px) {
+    #cb_cookie_policy_bar #cb_cookie_policy_popup [type="radio"] + label {
+        float: left;
+        clear: both;
+        margin-bottom: 5px;
+    }
+    #cb_cookie_policy_bar #cb_cookie_policy_popup #cb_cookie_preferences > span:last-of-type [type="radio"] + label {
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 979px) {
+    #cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup .cb_cookie_policy_popup_text,
+    #cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup_options,
+    #cb_cookie_policy_bar #cb_cookie_policy_popup #cb_cookie_preferences {
+        text-align: center;
+        width: 100%;
+    }
+    #cb_cookie_policy_bar #cb_cookie_policy_popup #cb_cookie_preferences {
+        padding-left: 60px;
+    }
+    #cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup_options#cb_cookie_landing { max-height: 110px;}
+    #cb_cookie_policy_bar #cb_cookie_policy_popup.show_preferences .cb_cookie_policy_popup_options#cb_cookie_preferences { max-height: 110px; }
+}
+
+@media only screen and (max-width: 620px) {
+    #cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup .cb_cookie_policy_popup_icon {
+        float: none;
+        margin: 0 auto;
+    }
+    #cb_cookie_policy_bar #cb_cookie_policy_popup .cb_cookie_policy_popup .cb_cookie_policy_popup_icon span {
+        width: 28px;
+        height: 28px;
+        line-height: 34px;
+        font-size: 16px;
+        border-radius: 50%;
+        float: none;
+        margin: 0 auto 10px;
+        display: block;
+    }
+    #cb_cookie_policy_bar #cb_cookie_policy_popup #_cb_accept {
+        clear: both;
+        display: block;
+        margin: 0 10px;
+    }
+    #cb_cookie_policy_bar #cb_cookie_policy_popup #cb_cookie_preferences {
+        padding-left: 15px;
+    }
+    #cb_cookie_policy_bar #cb_cookie_policy_popup #cb_cookie_preferences > span:last-of-type [type="radio"] + label {
+        margin-right: 0;
+    }
+}
+
+#cb_cookie_policy_bar #cb_cookie_policy_popup.seen .cb_cookie_policy_popup .cb_cookie_policy_popup_icon {
+    position: absolute;
+    left: 15px;
+    bottom: 1020px;
+}
+
+#cb_cookie_policy_bar #cb_cookie_policy_popup.seen .cb_cookie_policy_popup .cb_cookie_policy_popup_icon span {
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    font-size: 28px;
+    line-height: 38px;
+    border-radius: 50%;
+    float: none;
+    display: block;
+    margin: 0;
+    opacity: 0.6;
+    transition: opacity 0.2s ease-in-out;
+}
+#cb_cookie_policy_bar #cb_cookie_policy_popup.seen .cb_cookie_policy_popup_icon:hover span { opacity: 1; }

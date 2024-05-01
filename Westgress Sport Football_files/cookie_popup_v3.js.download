@@ -1,0 +1,70 @@
+$(function () {
+
+    var _cb_cookie = getCookie("agreed_cookie_policy");
+    $("#cb_cookie_preferences #_cb_accept_pref").css("background-color", $("#cb_cookie_landing #_cb_accept").css( "background-color" ));
+
+    if (typeof _cb_cookie === 'undefined' || _cb_cookie == '') {
+        $("#cb_cookie_policy_popup").removeClass('seen');
+        $("#cb_cookie_policy_popup_shroud").removeClass('seen');
+    } else if (_cb_cookie == 'accepted') {
+        $("#_cb_accept_all").attr('checked', 'checked');
+        $("#cb_cookie_policy_popup").addClass('show_preferences');
+    } else if (_cb_cookie == 'denied') {
+        $("#_cb_accept_thirdparty").attr('checked', 'checked');
+        $("#cb_cookie_policy_popup").addClass('show_preferences');
+    }
+
+    $("#cb_cookie_policy_popup:not(.seen) .cb_cookie_policy_popup_text .cb_cookie_button").focus();
+
+    $("#_cb_preferences").click(function (e) {
+        $("#cb_cookie_policy_popup").addClass('show_preferences');
+    });
+
+    $("#cb_cookie_landing #_cb_accept").click(function (e) {
+        $("#_cb_accept_all").attr('checked', 'checked');
+        cb_cookie_policy_popup_set_cookie();
+    });
+    $("#cb_cookie_preferences #_cb_accept_pref").click(function (e) {
+        e.preventDefault();
+        cb_cookie_policy_popup_set_cookie();
+    });
+    $("#cb_cookie_policy_popup.seen .cb_cookie_policy_popup_icon").click(function (e) {
+        $("#cb_cookie_policy_popup").removeClass('seen');
+        $("#cb_cookie_policy_popup_shroud").fadeIn();
+    });
+
+    function cb_cookie_policy_popup_set_cookie() {
+        var state = $("input[name='thirdparty']:checked").val();
+        if (typeof state === 'undefined') {
+            alert('Please select an option.');
+        } else {
+            var expirationDate = new Date();
+            expirationDate.setTime(expirationDate.getTime() + (30 * 24 * 60 * 60 * 1000)); // add 30 days
+            var expires = "expires=" + expirationDate.toUTCString();
+            var secure = '';
+            if (location.protocol == 'https:') {
+                secure = 'secure;';
+            }
+            document.cookie = "agreed_cookie_policy=" + state + ";" + expires + ";" + secure + "path=/";
+            location.reload();
+        }
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    $("#cb_cookie_policy_popup").slideDown(800);
+});
